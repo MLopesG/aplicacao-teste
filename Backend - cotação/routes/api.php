@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CotacaoFreteController;
+use App\Http\Controllers\TransportadoraController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,10 @@ use App\Http\Controllers\CotacaoFreteController;
 |
 */
 
+// Controller cotação
+Route::get('cotacao/uf', [CotacaoFreteController::class, 'ListarUFS']);
 Route::get('cotacao', [CotacaoFreteController::class, 'ListarImpostos']);
 Route::post('cotacao', [CotacaoFreteController::class, 'CadastroCotacaoFrete']);
 Route::put('cotacao', [CotacaoFreteController::class, 'SimularCotacaoFrete']);
+// Controller transportadoras
+Route::get('transportadoras', [TransportadoraController::class, 'ListarTransportadoras']);

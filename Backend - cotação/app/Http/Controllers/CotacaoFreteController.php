@@ -10,9 +10,16 @@ use App\Models\CotacaoFrete;
 
 class CotacaoFreteController extends Controller
 {
-    public function ListarImpostos(){
-        $impostos = DB::table('cotacao_frete')->get();
 
+    public function ListarUFS()
+    {
+        $ufs =  DB::table('cotacao_frete')->select('uf')->distinct()->get();
+        return response()->json($ufs, 200);
+    }
+
+    public function ListarImpostos()
+    {
+        $impostos = DB::table('cotacao_frete')->get();
         return response()->json($impostos, 200);
 
     }
